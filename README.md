@@ -1,8 +1,9 @@
 # Spartan-Messenger
 
 The aim is to build a response-streaming RPC where the client sends a request to the server and gets a stream to read a sequence of messages back. The client reads from the returned stream until there are no more messages. As one can see in the example, one specifies a response-streaming method by placing the stream keyword before the response type. // Obtains the Features available within the given Rectangle. Results are // streamed rather than returned at once (e.g. in a response message with a // repeated field), as the rectangle may cover a large area and contain a // huge number of features.
-
+```
 rpc ReceiveMsg(Message) returns (stream Message) {} 
+```
 Features
 
 Design group conversations among users. 
