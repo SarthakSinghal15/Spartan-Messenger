@@ -43,8 +43,8 @@ Alice's Terminal
 [bob] Hi Alice!
 [alice] >
 ```
-- Implements a LRU Cache to store recent messages in memory. :floppy_disk: [2 points]
-- Limit the number of messages a user can send to an API within a time window e.g., 15 requests per second. NOTE: The rate limiting should work for a distributed setup. :vertical_traffic_light: [1 point]
+- Implemented a LRU Cache to store recent messages in memory. :floppy_disk:
+- Limited the number of messages a user can send to an API within a time window e.g., 15 requests per second. NOTE: The rate limiting works for a distributed setup. :vertical_traffic_light: 
 
 
 - Provided end-to-end message encryption using [AES from PyCrypto library](https://docs.python-guide.org/scenarios/crypto/#pycrypto). :key:
