@@ -4,41 +4,54 @@ The aim is to build a response-streaming RPC where the client sends a request to
 ```
 rpc ReceiveMsg(Message) returns (stream Message) {} 
 ```
-Features
+## Features
 
-Design group conversations among users. 
+- Design group conversations among users. 
 Run Spartan Server
-
+```sh
 python3 server.py
 Spartan server started on port 3000.
+```
 Alice's Terminal
-
+```sh
 > python3 client.py alice
 [Spartan] Connected to Spartan Server at port 3000.
 [Spartan] User list: bob,charlie,eve,foo,bar,baz,qux
 [alice] > Hey Bob!
 [alice] >
-Bob's Terminal
+```
 
+Bob's Terminal
+```sh
 > python3 client.py bob
 [Spartan] Connected to Spartan Server at port 3000.
+[Spartan] User list: alice,charlie,eve,foo,bar,baz,qux
 [alice] Hey Bob!
 [bob] >
-Bob's Terminal
+```
 
+Bob's Terminal
+```sh
 ...
 [bob] > Hi Alice!
 [bob] >
-Alice's Terminal
+```
 
+Alice's Terminal
+```sh
 ...
 [bob] Hi Alice!
 [alice] >
-Implemented a LRU Cache to store recent messages in memory. 💾
-Limited the number of messages a user can send to an API within a time window e.g., 15 requests per second. NOTE: The rate limiting works for a distributed setup. 🚦
+```
+- Implements a LRU Cache to store recent messages in memory. :floppy_disk: [2 points]
+- Limit the number of messages a user can send to an API within a time window e.g., 15 requests per second. NOTE: The rate limiting should work for a distributed setup. :vertical_traffic_light: [1 point]
 
-Provided end-to-end message encryption using AES from PyCrypto library. 🔑
-Added Decorator for the LRU cache (E.g @lru_cache) and rate limition (E.g. @rate) 
 
-App Config
-Used given config.yaml to load users for the Spartan messenger.
+- Provided end-to-end message encryption using [AES from PyCrypto library](https://docs.python-guide.org/scenarios/crypto/#pycrypto). :key:
+- Added [Decorator](https://www.python-course.eu/python3_decorators.php) for the LRU cache (E.g @lru_cache) and rate limition (E.g. @rate). :cyclone:
+
+- Extend your design to support group chats. :family:
+
+## App Config
+
+- Used config.yaml to load users for the Spartan messenger.
