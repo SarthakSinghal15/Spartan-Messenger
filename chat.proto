@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package grpc;
+
+message Empty {}
+
+// I called it Note because message Message sounds complicated
+message Note {
+    string name = 1;
+    bytes message = 2;
+    int32 groupid = 3;
+}
+message User {
+    string uname = 1;
+}
+message Ugroupid{
+    int32 id = 1;
+    }
+service SpartanChatServer {
+    // This bi-directional stream makes it possible to send and receive Notes between 2 persons
+    rpc ChatStream (Ugroupid) returns (stream Note);
+    rpc SendNote (Note) returns (Empty);
+    rpc UserLogin(User) returns (Ugroupid);
+}
+
